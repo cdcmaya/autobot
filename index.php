@@ -20,7 +20,7 @@ if(!is_null($events['events'])){
                 case 'text':
                 $replyToken=$event['replyToken'];
 
-                $respMessage = 'Hello, your message is'.$event['message']['text'];
+                $respMessage = 'Hello, your message is'. $event['message']['text'];
 
                 $httpClient = new CurlHTTPCLient($channel_token);
                 $bot= new LINEBot($httpClient, array('channelSecret' => $channel_secret));
