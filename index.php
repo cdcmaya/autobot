@@ -15,19 +15,24 @@ $events=json_decode($content,true);
 
 if(!is_null($events['events'])){
     foreach($events['events'] as $event){
-        if($event['type']=='message'){
-            switch($event['message']['type']){
-                case 'text':
-                $replyToken=$event['replyToken'];
-
-                $respMessage = 'Hello, your message is'. $event['message']['text'];
-
-                $httpClient = new CurlHTTPCLient($channel_token);
-                $bot= new LINEBot($httpClient, array('channelSecret' => $channel_secret));
-                $textMessageBuilder=new TextMessageBuilder($respMessage);
-                $response=$bot->replyMessage($replyToken, $textMessageBuilder);
+        $replyToken = $event['replyToken'];
+        $ask = $event['message']['text'];
+        switch(strtolower($ask)){
+            case 'm':
+                $repMessage = 'What sup man!!';
                 break;
-            }
+            case 'f':
+                $repMessage = 'Love you lady';
+                break;
+            default:
+                $repMessage = 'Where is Your Sex ?';
+                break;
         }
+        $httpClient = new CurlHTTPClient($channel_token);
+        $bot = new LINEBot($httpClient,array('channelSecret'=>$channel_secret));
+
+        $textMessageBuilder = new TextMessageBuilder($repMessage);
+        $response = $bot->replyMessage($replyToken,$textMessageBuilder);
     }
 } // end if
+echo "ok";
