@@ -17,13 +17,13 @@ if(!is_null($events['events'])){
     foreach($events['events'] as $event){
         if($event['type']=='message'){
             switch($event['message']['type']){
-                case 'text' :
+                case 'text':
                 $replyToken=$event['replyToken'];
 
                 $respMessage = 'Hello, your message is'.$event['message']['text'];
 
                 $httpClient = new CurlHTTPCLient($channel_token);
-                $bot=new LINEBot($httpClient, array('channelSecret'=>$channel_secret));
+                $bot= new LINEBot($httpClient, array('channelSecret' => $channel_secret));
                 $textMessageBuilder=new TextMessageBuilder($respMessage);
                 $response=$bot->replyMessage($replyToken, $textMessageBuilder);
                 break;
