@@ -31,4 +31,3 @@ if(!is_null($events['events'])){
         }
     }
 } // end if
-echo "ok";
