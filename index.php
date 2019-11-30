@@ -3,7 +3,7 @@ require_once('vendor/autoload.php');
 
 //Namespace
 
-use \LINE\LINEBot\HTTPClient\CurlHTTPCLient;
+use \LINE\LINEBot\HTTPClient\CurlHTTPClient;
 use \LINE\LINEBot;
 use \LINE\LINEBot\MessageBuilder\TextMessageBuilder;
 
