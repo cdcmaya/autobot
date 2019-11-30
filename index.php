@@ -1,5 +1,5 @@
 <?php 
-require_once('/vendor/autoload.php');
+require_once('vendor/autoload.php');
 
 //Namespace
 
@@ -31,3 +31,4 @@ if(!is_null($events['events'])){
         }
     }
 } // end if
+echo "ok";
